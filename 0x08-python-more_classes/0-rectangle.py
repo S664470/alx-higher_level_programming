@@ -4,6 +4,6 @@
 """Rectanle class"""
 
 class Rectangle:
-    """class name Rectangle"""
 
+    """class name Rectangle"""
     pass
