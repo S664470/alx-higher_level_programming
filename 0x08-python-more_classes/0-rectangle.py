@@ -2,4 +2,5 @@
 # Auth: Shahinda Altayeb
 
 class Rectangle:
+    """class name Rectangle"""
     pass
