@@ -1,5 +1,10 @@
 #!/usr/bin/python3
+"""Class Rectangel"""
+
+
 class Rectangle:
+    """intilization of the attribute"""
+
     def __init__(self, width=0, height=0):
         self.__height = height
         self.__width = width
