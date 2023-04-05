@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Class Rectangel"""
 
-
 class Rectangle:
     """intilization of the attribute"""
 
