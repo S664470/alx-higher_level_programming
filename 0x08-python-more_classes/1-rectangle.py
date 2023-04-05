@@ -5,9 +5,10 @@
 
 
 class Rectangle:
-
     """intilization of the attribute"""
+
     def __init__(self, width=0, height=0):
+        """Class instance intialization"""
         self.__height = height
         self.__width = width
 
