@@ -5,7 +5,12 @@
 
 
 class Rectangle:
-    """intilization of the attribute"""
+    """intilization of the attribute.
+    Attributes:
+        __width (int): the width of the rectangle.
+        __height (int): the height of the rectangle
+
+    """
 
     def __init__(self, width=0, height=0):
         """Class instance intialization"""
