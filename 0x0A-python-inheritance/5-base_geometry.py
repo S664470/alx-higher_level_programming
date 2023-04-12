@@ -4,5 +4,4 @@
 
 class BaseGeometry:
     """pass any function here it will work"""
-
     pass
