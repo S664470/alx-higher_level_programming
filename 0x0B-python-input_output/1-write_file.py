@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Writting string to a text file with UTF8 and return number of char written"""
+"""Writting string to a text file and return n char read"""
 
 
 def write_file(filename="", text=""):
