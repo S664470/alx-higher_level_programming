@@ -10,4 +10,3 @@ def write_file(filename="", text=""):
 
         num_char_written = file.write(text)
     return len(text)
-        
