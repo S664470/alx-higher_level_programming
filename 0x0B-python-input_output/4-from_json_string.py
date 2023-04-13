@@ -4,6 +4,7 @@
 
 import json
 
+
 def from_json_string(my_str):
     """Function to returm a format string of my_list"""
 
