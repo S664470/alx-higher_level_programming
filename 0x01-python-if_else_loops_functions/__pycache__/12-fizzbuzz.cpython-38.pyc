@@ -1,0 +1,6 @@
+U  
+ ֵcP�@sdd�ZdS)cCs�d}tdd�D]b}|ddkr4|ddkr4|d7}q|ddkrJ|d7}q|ddkr`|d	7}q|t|�d 
+ 7}qt|dd�dS)N���e���z	FizzBuzz zBuzz zFizz � )�end)�range�str�print)�result�i�r�U/home/alx-higher_level_programming/0x01-python-if_else_loops_functions/12-fizzbuzz.py�fizzbuzzs 
+  
+  
+ rN)rrrrr�<module>�
