@@ -1,110 +1,142 @@
-The ``0-add_integer`` module
-======================
+>>> add_integer = __import__('0-add_integer').add_integer
 
-Using ``add_integer``
--------------------
+    ---- Check that the file is executable ----
+    >>> import os
+    >>> os.access('0-add_integer.py', os.X_OK)
+    True
 
-Importing the function from the module:
-	>>> add_integer = __import__("0-add_integer").add_integer
+    ---- Check for the documentation of the module ----
+    >>> len(__import__("0-add_integer").__doc__) > 10
+    True
 
-Checking for module docstring:
-	 >>> m = __import__("0-add_integer").__doc__
-	 >>> len(m) > 1
-	 True
+    ---- Check for the documentation of the function ----
+    >>> len(__import__("0-add_integer").add_integer.__doc__) > 10
+    True
 
-Checking for function docstring:
-	 >>> f = __import__("0-add_integer").add_integer.__doc__
-         >>> len(f) > 1
-         True
+    ---- Check for pep8 style ----
+    >>> os.popen("pep8 0-add_integer.py").read()
+    ''
 
-Checking regular addition:
-	 >>> add_integer(2, 3)
-	 5
+    ---- Check for a newline at the end of the file ----
+    >>> os.popen("cat -e 0-add_integer.py | tail -1").read()[-1]
+    '\n'
 
-Checking positive with negative:
-	 >>> add_integer(2, -4)
-	 -2
+    ---- Check for the file has a shebang ----
+    >>> os.popen("cat 0-add_integer.py | head -1").read()
+    '#!/usr/bin/python3\n'
 
-Checking negative with positive:
-	 >>> add_integer(-6, 8)
-	 2
+    ---- Check that the README file exists ----
+    >>> cwd = os.getcwd()
+    >>> check_readme = cwd + '/README.md'
+    >>> os.path.exists(check_readme)
+    True
 
-Checking addition over multiple values:
-	 >>> [add_integer(i, i ** 2) for i in range(6)]
-	 [0, 2, 6, 12, 20, 30]
 
-Checking float with int:
-	 >>> add_integer(2.1, 4)
-	 6
+    #-------------------------- Tests from 0-main.py --------------------------#
 
-Checking int with float:
-	 >>> add_integer(5, 7.8)
-	 12
+    ### Both ints.
+    >>> add_integer(1, 2)
+    3
 
-Checking both float:
-	 >>> add_integer(2.45, 3.1)
-	 5
+    ### One negative
+    >>> add_integer(100, -2)
+    98
 
-Checking for passed NaN:
-	 >>> add_integer(1, float('nan'))
-	 Traceback (most recent call last):
-	 ...
-	 ValueError: cannot convert float NaN to integer
+    ### Only one int.
+    >>> add_integer(2)
+    100
 
-Checking for passed inf:
-	 >>> add_integer(1, float('inf'))
-	 Traceback (most recent call last):
-	 ...
-	 OverflowError: cannot convert float infinity to integer
+    ### One float.
+    >>> add_integer(100.3, -2)
+    98
 
-Checking super long int:
-	 >>> add_integer(999999999999999999999999999999, 1)
-	 1000000000000000000000000000000
+    ### Str in (b) argument.
+    >>> add_integer(4, "School")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
 
-Checking non-number with number:
-	 >>> add_integer([1], 2)
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: a must be an integer
+    ### None
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
 
-Checking number with non-number:
-	 >>> add_integer(3, "2")
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: b must be an integer
+    #------------------ Mixed Correct cases, int, float ------------------#
 
-Checking non-number with non-number:
-	 >>> add_integer((2,), {"key": "value"})
-         Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
+    ### int + float
+    >>> add_integer(3, 3.5)
+    6
 
-Checking bool with number:
-	 >>> add_integer(True, 1)
-	 Traceback (most recent call last):
-         ...
-         TypeError: a must be an integer
+    ### float + int
+    >>> add_integer(3.2, 3)
+    6
 
-Checking number with bool:
-	 >>> add_integer(0, False)
-         Traceback (most recent call last):
-         ...
-         TypeError: b must be an integer
+    ### int + -float
+    >>> add_integer(3, -3.2)
+    0
 
-Checking no args:
-	 >>> add_integer()
-	 Traceback (most recent call last):
-	 ...
-	 TypeError: add_integer() missing 2 required positional arguments: 'a' and 'b'
+    ### -float + int
+    >>> add_integer(-3.9, 3)
+    0
 
-Checking one arg:
-	 >>> add_integer(1)
-	 Traceback (most recent call last):
-         ...
-	 TypeError: add_integer() missing 1 required positional argument: 'b'
+    ### float + -int
+    >>> add_integer(3.2, -3)
+    0
 
-Checking more than 2 args:
-	 >>> add_integer(1, 2, 3)
-         Traceback (most recent call last):
-         ...
-         TypeError: add_integer() takes 2 positional arguments but 3 were given
+    ### -int + float
+    >>> add_integer(-3, 3.2)
+    0
+
+    ### -int + -float
+    >>> add_integer(-3, -3.5)
+    -6
+
+    ### Only one int.
+    >>> add_integer(2)
+    100
+
+    ### float + float
+    >>> add_integer(3.9, 3.5)
+    6
+
+    ### -int + -int
+    >>> add_integer(-3, -3)
+    -6
+
+    #--------------------------| Incorrect cases |--------------------------#
+
+    #------------------------- Not Correct Types -------------------------#
+
+    ### Complex type
+    >>> add_integer(3j)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    ### Boolean type
+    >>> add_integer(True, 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    ### Too large of a number.
+    >>> add_integer(1, 10e+1000)
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+    >>> add_integer(1, (10e+1000 / 10e+1000))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+    ### Two Floats.
+    >>> add_integer(100.3, -100.3)
+    0
+
+    ### Str in (a) argument.
+    >>> add_integer("C was fun", -100.3)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer

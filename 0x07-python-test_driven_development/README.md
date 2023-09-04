@@ -1,1 +1,1 @@
-0x07. Python - Test-driven development
+mportant notice on intranet checks for Python projects
