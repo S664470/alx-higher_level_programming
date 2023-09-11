@@ -1,8 +1,11 @@
 #!/usr/bin/python3
-"""Function that return list of method and attribute of an objecg used"""
+"""
+lookup function
+
+"""
 
 
 def lookup(obj):
-    """dir() is used to return list of a method and object used"""
+    """returns a list of available attributes and methods of an object"""
 
-    return dir(list)
+    return dir(obj)
