@@ -1,5 +1,8 @@
-#!/us_same_class.pysir/bin/python3
-"""Function if is the same class"""
+#!/usr/bin/python3
+"""
+Function if is the same class
+
+"""
 
 
 def is_same_class(obj, a_class):
