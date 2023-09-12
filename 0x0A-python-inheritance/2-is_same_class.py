@@ -1,10 +1,10 @@
-#!/usr/bin/python3
-"""
-ckeh if is the same class
-
-"""
+#!/us_same_class.pysir/bin/python3
+"""Function if is the same class"""
 
 
 def is_same_class(obj, a_class):
-    """returns True if the object is exactly the same class other return False"""
+    """
+    Returns True if the object is exactly the same class,
+    otherwise return False
+    """
     return (type(obj) == a_class)
