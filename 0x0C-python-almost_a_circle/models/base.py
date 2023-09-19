@@ -26,7 +26,7 @@ class Base:
             """
             JSON REPRESNTATION OF STRING
             """
-
+    @staticmethod
     def to_json_string(list_dictionaries):
         if list_dictionaries is None:
             return "[]"
