@@ -1,3 +1,0 @@
-U  
- �ߵc��@sdd�ZdS)cCs<d}|D].}|dkr.|t|�kr.|||kr.q||7}q|S)N��)�len)�str�n�resultZch�r�\/home/alx-higher_level_programming/0x01-python-if_else_loops_functions/101-remove_char_at.py�remove_char_ats 
- r	N)r	rrrr�<module>�

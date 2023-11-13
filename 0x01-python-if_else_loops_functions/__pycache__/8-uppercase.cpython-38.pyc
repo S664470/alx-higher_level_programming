@@ -1,7 +1,0 @@
-U  
- zеc��@sdd�ZdS)cCsVd}|D]:}t|�dkr:t|�dkr:|tt|�d�7}q||7}qtd�|��dS)N��a�z� z{})�ord�chr�print�format)�strZreslutZch�r 
- �U/home/alx-higher_level_programming/0x01-python-if_else_loops_functions/8-uppercase.py�	uppercases 
- rN)rr 
- r 
- r 
- r�<module>�
