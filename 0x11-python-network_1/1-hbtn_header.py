@@ -4,12 +4,8 @@ import urllib.request
 import sys
 
 
-"""Get the url from the command line"""
-url = sys.argv[1]
-
-"""Send the request to get the response"""
-with urllib.request.urlopen(url) as response:
-    """Getting the value of the X-Request-Id"""
-    header = response.getheader('X-Request-Id')
-    """Value displaying"""
-    print(header)
+if __name__ == "__main__":
+    url = sys.argv[1]
+    with urllib.request.urlopen(url) as response:
+        header = response.getheader('X-Request-Id')
+        print(header)
